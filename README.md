@@ -1,24 +1,2 @@
-# vue2proj
-
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+# Bootstrap Lesson
+![изображение](https://github.com/user-attachments/assets/df23b811-8502-4077-80df-d0489db46e59)
