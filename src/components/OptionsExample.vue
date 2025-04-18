@@ -7,28 +7,28 @@
 
 <script>
 export default {
-  name: 'MessageComponent',
+  name: "MessageComponent",
   data() {
     return {
-      message: 'Привіт, Vue!'
+      message: "Привіт, Vue!",
     };
   },
   computed: {
     reversedMessage() {
-      return this.message.split('').reverse().join('');
-    }
+      return this.message.split("").reverse().join("");
+    },
   },
   methods: {
     reverseMessage() {
-      this.message = this.message.split('').reverse().join('');
-    }
+      this.message = this.message.split("").reverse().join("");
+    },
   },
   watch: {
     message(newValue, oldValue) {
       console.log(`Повідомлення змінилось з "${oldValue}" на "${newValue}"`);
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style scoped>

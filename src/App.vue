@@ -1,22 +1,24 @@
 <!-- src/App.vue -->
 <template>
-  <div class="container mt-3 mb-3">
-    <div class="col">
-      <button type="button" class="btn btn-primary">Primary</button>
-      <button type="button" class="btn btn-secondary">Secondary</button>
-      <button type="button" class="btn btn-success">Success</button>
-      <button type="button" class="btn btn-danger">Danger</button>
-      <button type="button" class="btn btn-warning">Warning</button>
-      <button type="button" class="btn btn-info">Info</button>
-      <button type="button" class="btn btn-light">Light</button>
-      <button type="button" class="btn btn-dark">Dark</button>
-      <label class="mb-0 ms-4">Надпис</label>
-      <input class="mb-0 ms-1" />
-      <b-form-group label="Надпис">
-        <b-form-input></b-form-input>
-      </b-form-group>
-    </div>
-  </div>
+  <b-container>
+    <b-row class="my-3">
+      <b-col cols="auto">
+        <b-button variant="primary">Primary</b-button>
+        <b-button variant="secondary">Secondary</b-button>
+        <b-button variant="success">Success</b-button>
+        <b-button variant="danger">Danger</b-button>
+        <b-button variant="warning">Warning</b-button>
+        <b-button variant="info">Info</b-button>
+        <b-button variant="light">Light</b-button>
+        <b-button variant="dark">Dark</b-button>
+      </b-col>
+      <b-col>
+        <b-form-group class="ms-3" label="Маленькая">
+          <b-form-input></b-form-input>
+        </b-form-group>
+      </b-col>
+    </b-row>
+  </b-container>
 </template>
 
 <script>
