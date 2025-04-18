@@ -4,7 +4,9 @@
   "description": "Course for VueJS",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "p-check": "prettier --check .",
+    "p-write": "prettier --write .",
+    "eslint": "eslint ."
   },
   "repository": {
     "type": "git",
