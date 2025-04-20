@@ -1,2 +1,3 @@
 # Bootstrap Lesson
-![изображение](https://github.com/user-attachments/assets/df23b811-8502-4077-80df-d0489db46e59)
+![изображение](https://github.com/user-attachments/assets/e77746e9-76b5-49f2-8442-2f1dd2d97760)
+
