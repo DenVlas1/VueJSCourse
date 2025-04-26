@@ -1,24 +1,17 @@
 <!-- src/App.vue -->
 <template>
-  <b-container  >
-    <b-row class="my-3  justify-content-md-center"  >
-      <b-col cols="auto"  >
-        <b-button variant="primary">Primary</b-button>
-        <b-button variant="secondary">Secondary</b-button>
-        <b-button variant="success">Success</b-button>
-        <b-button variant="danger">Danger</b-button>
-        <b-button variant="warning">Warning</b-button>
-        <b-button variant="info">Info</b-button>
-        <b-button variant="light">Light</b-button>
-        <b-button variant="dark">Dark</b-button>
-      </b-col>
-      <b-col cols="auto"  >
-        <b-form-group label="Маленькая"
-                      label-for="input-1"
-                      label-cols-sm="4"
-                      class=" d-inline-flex">
-          <b-form-input  id="input-1"></b-form-input>
-        </b-form-group>
+  <b-container>
+    <b-row>
+      <b-col cols="12">
+        <b-table
+          striped
+          hover
+          :items="items"
+          :fields="fields"
+          label-sort-asc=""
+          label-sort-desc=""
+          label-sort-clear=""
+        ></b-table>
       </b-col>
     </b-row>
   </b-container>
@@ -26,7 +19,52 @@
 
 <script>
 export default {
-  name: "App",
-  components: {},
+  data() {
+    return {
+      fields: [
+        { key: "first_name", label: "Ім'я", sortable: true },
+        { key: "last_name", label: "Прізвище", sortable: true },
+        { key: "age", label: "Рік", sortable: true }
+      ],
+      items: [
+        {
+          age: 42,
+          first_name: "Людмила",
+          last_name: "Василівна",
+          _rowVariant: "danger",
+        },
+        {
+          age: 21,
+          first_name: "Григорій",
+          last_name: "Стрикоза",
+          _cellVariants: {
+            age: "success",
+            first_name: "info",
+            last_name: "light",
+          },
+        },
+        {
+          age: 89,
+          first_name: "Олег",
+          last_name: "Руденко",
+          _cellVariants: {
+            age: "warning",
+            first_name: "success",
+            last_name: "dark",
+          },
+        },
+        {
+          age: 38,
+          first_name: "Богдан",
+          last_name: "Хмельницький",
+          _cellVariants: {
+            age: "primary",
+            first_name: "info",
+            last_name: "warning",
+          },
+        },
+      ],
+    };
+  },
 };
 </script>
