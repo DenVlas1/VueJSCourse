@@ -1,70 +1,53 @@
 <!-- src/App.vue -->
 <template>
-  <b-container>
-    <b-row>
-      <b-col cols="12">
-        <b-table
-          striped
-          hover
-          :items="items"
-          :fields="fields"
-          label-sort-asc=""
-          label-sort-desc=""
-          label-sort-clear=""
-        ></b-table>
-      </b-col>
-    </b-row>
-  </b-container>
+<div>
+  <b-navbar :type="dark" :variant="dark">
+    <b-container>
+      <b-navbar-brand>Завдання №3</b-navbar-brand>
+      <b-navbar-nav class="me-auto">
+        <b-nav-item
+          v-for="(page, index) in pages"
+          :key="index"
+          :active="activePage === index"
+          @click.prevent="activePage = index">
+          {{ page.link.text }} </b-nav-item>
+           </b-navbar-nav>
+      <b-button class="btn" @click="ChangeTheme">Змінити колір</b-button>
+    </b-container>
+  </b-navbar>
+  <page-viewer
+      :page="pages[activePage]">
+  </page-viewer>
+</div>
 </template>
 
 <script>
+import PageViewer from '@/components/PageViewer.vue'
 export default {
+  components: {PageViewer},
   data() {
     return {
-      fields: [
-        { key: "first_name", label: "Ім'я", sortable: true },
-        { key: "last_name", label: "Прізвище", sortable: true },
-        { key: "age", label: "Рік", sortable: true }
-      ],
-      items: [
+      activePage: 0,
+      theme: 'dark',
+      pages: [
         {
-          age: 42,
-          first_name: "Людмила",
-          last_name: "Василівна",
-          _rowVariant: "danger",
+          link: { text: "Home", url: "index.html" },
+          pageTitle: "HomePage",
+          content: "test1",
         },
         {
-          age: 21,
-          first_name: "Григорій",
-          last_name: "Стрикоза",
-          _cellVariants: {
-            age: "success",
-            first_name: "info",
-            last_name: "light",
-          },
+          link: { text: "About", url: "about.html" },
+          pageTitle: "About",
+          content: "test2",
         },
         {
-          age: 89,
-          first_name: "Олег",
-          last_name: "Руденко",
-          _cellVariants: {
-            age: "warning",
-            first_name: "success",
-            last_name: "dark",
-          },
-        },
-        {
-          age: 38,
-          first_name: "Богдан",
-          last_name: "Хмельницький",
-          _cellVariants: {
-            age: "primary",
-            first_name: "info",
-            last_name: "warning",
-          },
+          link: { text: "Contact", url: "contact.html" },
+          pageTitle: "Contact",
+          content: "test3",
         },
       ],
     };
   },
+
 };
 </script>
