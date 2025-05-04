@@ -1,8 +1,8 @@
 <!-- src/App.vue -->
 <template>
-  <div>
+  <b-container>
     <b-navbar type="dark" variant="dark">
-      <b-container>
+
         <b-navbar-brand>Завдання №3</b-navbar-brand>
         <b-navbar-nav class="me-auto">
           <!--          виведення усіх значень зі списку сторінок-->
@@ -15,10 +15,11 @@
             {{ page.link.text }}
           </b-nav-item>
         </b-navbar-nav>
-      </b-container>
     </b-navbar>
-    <page-viewer :page="pages[activePage]"> </page-viewer>
-  </div>
+      <page-viewer :page="pages[activePage]"> </page-viewer>
+  </b-container>
+
+
 </template>
 
 <script>
