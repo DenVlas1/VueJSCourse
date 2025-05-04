@@ -1,7 +1,7 @@
 <!-- src/App.vue -->
 <template>
   <div>
-    <b-navbar :type="dark" :variant="dark">
+    <b-navbar type="dark" variant="dark">
       <b-container>
         <b-navbar-brand>Завдання №3</b-navbar-brand>
         <b-navbar-nav class="me-auto">
