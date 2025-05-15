@@ -18,12 +18,12 @@ export default {
   },
   methods: {
     emitConfirm() {
-      const payload = {
+      const result = {
         carNumber: this.carNumber,
         driverName: this.driverName,
         carWeight: this.carWeight,
       };
-      this.$emit("confirm", payload);
+      this.$emit("confirm", result);
     },
     emitCancel() {
       this.$emit("cancel");

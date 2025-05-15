@@ -85,13 +85,13 @@ export default {
       this.showOkAlert = false;
       this.showCancelAlert = false;
     },
-    onConfirm(payload) {
+    onConfirm(result) {
       this.showOkAlert = true;
       this.showCancelAlert = false;
       this.resultData = {
-        carNumber: payload.carNumber,
-        driverName: payload.driverName,
-        carWeight: payload.carWeight,
+        carNumber: result.carNumber,
+        driverName: result.driverName,
+        carWeight: result.carWeight,
       };
       this.form.driverName = null;
       this.form.carNumber = null;
