@@ -2,10 +2,10 @@
   <b-container>
     <b-row class="justify-content-center">
       <b-col cols="12" md="6">
-        <b-alert variant="success" v-model="showOkAlert" dismissible fade
+        <b-alert variant="success" v-model="showOkAlert"  fade
           >Дані збережені</b-alert
         >
-        <b-alert variant="danger" v-model="showCancelAlert" dismissible fade
+        <b-alert variant="danger" v-model="showCancelAlert"  fade
           >Дані не прийняті</b-alert
         >
 
@@ -47,14 +47,15 @@
         />
 
         <b-card
-          v-if="resultData"
+         v-for="(result,index) in resultData"
+         :key="index"
           bg-variant="primary"
           text-variant="white"
           class="text-center mt-4"
         >
-          <h5>Ім'я водія: {{ resultData.driverName }}</h5>
-          <h5>Номер авто: {{ resultData.carNumber }}</h5>
-          <h5>Вага авто: {{ resultData.carWeight }}</h5>
+          <h5>Ім'я водія: {{ result.driverName }}</h5>
+          <h5>Номер авто: {{ result.carNumber }}</h5>
+          <h5>Вага авто: {{ result.carWeight }}</h5>
         </b-card>
       </b-col>
     </b-row>
@@ -76,7 +77,7 @@ export default {
         carWeight: null,
       },
       openModal: false,
-      resultData: null,
+      resultData: [],
     };
   },
   methods: {
@@ -88,11 +89,11 @@ export default {
     onConfirm(result) {
       this.showOkAlert = true;
       this.showCancelAlert = false;
-      this.resultData = {
+      this.resultData.push({
         carNumber: result.carNumber,
         driverName: result.driverName,
         carWeight: result.carWeight,
-      };
+      });
       this.form.driverName = null;
       this.form.carNumber = null;
       this.form.carWeight = null;

@@ -39,6 +39,7 @@ export default {
       @cancel="emitCancel"
       v-model="modalVisible"
       title="Підтвердження"
+      hide-header-close
     >
       <h1>
         Прийняти зміни для машини {{ carNumber }} з водієм {{ driverName }} та
