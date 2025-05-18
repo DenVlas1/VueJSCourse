@@ -1,107 +1,16 @@
 <template>
   <b-container>
-    <b-row class="justify-content-center">
-      <b-col cols="12" md="6">
-        <b-alert variant="success" v-model="showOkAlert"  fade
-          >Дані збережені</b-alert
-        >
-        <b-alert variant="danger" v-model="showCancelAlert"  fade
-          >Дані не прийняті</b-alert
-        >
-
-        <b-form @submit.prevent="onSubmit">
-          <b-form-group label="Номер авто" label-for="carNumber">
-            <b-form-input
-              id="carNumber"
-              v-model.number="form.carNumber"
-              required
-            />
-          </b-form-group>
-
-          <b-form-group label="Ім'я водія" label-for="driver-Name">
-            <b-form-input id="driver-Name" v-model="form.driverName" required />
-          </b-form-group>
-
-          <b-form-group label="Вага авто" label-for="carWeight">
-            <b-form-input
-              id="carWeight"
-              v-model.number="form.carWeight"
-              required
-            />
-          </b-form-group>
-
-          <b-col class="mt-3 text-center">
-            <b-button type="submit" variant="primary" block>
-              Підтвердити
-            </b-button>
-          </b-col>
-        </b-form>
-
-        <modal-window
-          :open-modal.sync="openModal"
-          :car-number="form.carNumber"
-          :driver-name="form.driverName"
-          :car-weight="form.carWeight"
-          @confirm="onConfirm"
-          @cancel="onCancel"
-        />
-
-        <b-card
-         v-for="(result,index) in resultData"
-         :key="index"
-          bg-variant="primary"
-          text-variant="white"
-          class="text-center mt-4"
-        >
-          <h5>Ім'я водія: {{ result.driverName }}</h5>
-          <h5>Номер авто: {{ result.carNumber }}</h5>
-          <h5>Вага авто: {{ result.carWeight }}</h5>
-        </b-card>
-      </b-col>
-    </b-row>
+    <b-nav class="mt-2">
+      <router-link to="/">Home</router-link> |
+      <router-link to="/about">About</router-link> |
+      <router-link to="/contact">Contact</router-link> |
+    </b-nav>
+    <b-card class="mt-5 text-center">
+      <router-view />
+    </b-card>
   </b-container>
 </template>
 
 <script>
-import modalWindow from "@/components/ModalWindow.vue";
-
-export default {
-  components: { modalWindow },
-  data() {
-    return {
-      showOkAlert: false,
-      showCancelAlert: false,
-      form: {
-        carNumber: null,
-        driverName: null,
-        carWeight: null,
-      },
-      openModal: false,
-      resultData: [],
-    };
-  },
-  methods: {
-    onSubmit() {
-      this.openModal = true;
-      this.showOkAlert = false;
-      this.showCancelAlert = false;
-    },
-    onConfirm(result) {
-      this.showOkAlert = true;
-      this.showCancelAlert = false;
-      this.resultData.push({
-        carNumber: result.carNumber,
-        driverName: result.driverName,
-        carWeight: result.carWeight,
-      });
-      this.form.driverName = null;
-      this.form.carNumber = null;
-      this.form.carWeight = null;
-    },
-    onCancel() {
-      this.showOkAlert = false;
-      this.showCancelAlert = true;
-    },
-  },
-};
+export default {};
 </script>
