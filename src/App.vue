@@ -1,10 +1,13 @@
 <template>
   <b-container>
-    <b-nav class="mt-2">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link> |
-      <router-link to="/contact">Contact</router-link> |
-    </b-nav>
+    <b-navbar type="light" variant="light" class="justify-content-center">
+      <b-navbar-nav>
+        <b-nav-item to="/" class="text-dark">Home</b-nav-item>
+        <b-nav-item to="/about" class="text-dark">About</b-nav-item>
+        <b-nav-item to="/contact" class="text-dark">Contact</b-nav-item>
+      </b-navbar-nav>
+    </b-navbar>
+
     <b-card class="mt-5 text-center">
       <router-view />
     </b-card>
@@ -12,5 +15,11 @@
 </template>
 
 <script>
-export default {};
+export default {
+  computed: {
+    products() {
+      return this.$store.state.products;
+    },
+  },
+};
 </script>
