@@ -4,11 +4,11 @@ import router from "/src/router";
 import { BootstrapVue, IconsPlugin } from "bootstrap-vue";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
-import { store } from "./store";
+import store from "./store/store";
 Vue.use(BootstrapVue);
 Vue.use(IconsPlugin);
 
-store.commit("initializeStore");
+store.dispatch("vehicles/loadVehicle");
 
 import App from "./App.vue";
 Vue.config.productionTip = false;

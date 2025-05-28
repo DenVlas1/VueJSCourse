@@ -36,13 +36,15 @@
   </b-container>
 </template>
 <script>
-import { mapMutations } from "vuex";
+import { mapActions } from "vuex";
+
 export default {
   data() {
     return {
       showOkAlert: false,
 
       form: {
+        id: null,
         carNumber: null,
         driverName: null,
         carWeight: null,
@@ -50,15 +52,16 @@ export default {
     };
   },
   methods: {
-    ...mapMutations(["addVehicleInfo"]),
+    ...mapActions("vehicles", ["addVehicle"]),
     onSubmit() {
       const payload = {
+        id: Date.now(),
         carNumber: this.form.carNumber,
         driverName: this.form.driverName,
         carWeight: this.form.carWeight,
       };
-      this.addVehicleInfo(payload);
-
+      // this.addVehicleInfo(payload);
+      this.addVehicle(payload);
       this.showOkAlert = true;
       setTimeout(() => {
         this.showOkAlert = false;

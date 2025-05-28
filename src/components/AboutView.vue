@@ -15,7 +15,7 @@
         <h5>Ім'я водія: {{ result.driverName }}</h5>
         <h5>Номер авто: {{ result.carNumber }}</h5>
         <h5>Вага авто: {{ result.carWeight }}</h5>
-        <b-button variant="danger" @click.prevent="removeVehicleInfo(index)">
+        <b-button variant="danger" @click.prevent="onSubmit(index)">
           Видалити картку</b-button
         >
       </b-card>
@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import { mapGetters, mapMutations } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 export default {
   data() {
     return {
@@ -32,10 +32,13 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(["getVehicleInfo"]),
+    ...mapGetters("vehicles", ["getVehicleInfo"]),
   },
   methods: {
-    ...mapMutations(["removeVehicleInfo"]),
+    ...mapActions("vehicles", ["removeVehicle"]),
+    onSubmit(payload) {
+      this.removeVehicle(payload);
+    },
   },
 };
 </script>
