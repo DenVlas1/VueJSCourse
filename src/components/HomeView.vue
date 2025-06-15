@@ -51,16 +51,22 @@ export default {
       },
     };
   },
+
   methods: {
     ...mapActions("vehicles", ["addVehicle"]),
     onSubmit() {
+      const weather = this.$store.getters["weather/getCurrentWeather"];
       const payload = {
         id: Date.now(),
         carNumber: this.form.carNumber,
         driverName: this.form.driverName,
         carWeight: this.form.carWeight,
+        weather: {
+          temperature: weather.temperature,
+          weathercode: weather.weathercode,
+        },
       };
-      // this.addVehicleInfo(payload);
+
       this.addVehicle(payload);
       this.showOkAlert = true;
       setTimeout(() => {

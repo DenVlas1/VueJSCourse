@@ -15,6 +15,13 @@
         <h5>Ім'я водія: {{ result.driverName }}</h5>
         <h5>Номер авто: {{ result.carNumber }}</h5>
         <h5>Вага авто: {{ result.carWeight }}</h5>
+        <h5>температура : {{ result.weather.temperature }} °C</h5>
+        <p>
+          <b-img
+            class="weather-image"
+            :src="mapIcon(result.weather.weathercode)"
+          ></b-img>
+        </p>
         <b-button variant="danger" @click.prevent="onSubmit(index)">
           Видалити картку</b-button
         >
@@ -24,6 +31,7 @@
 </template>
 
 <script>
+import { mapWeatherCodeToIcon } from "@/store/Weather/weatherIcons";
 import { mapActions, mapGetters } from "vuex";
 export default {
   data() {
@@ -34,7 +42,11 @@ export default {
   computed: {
     ...mapGetters("vehicles", ["getVehicleInfo"]),
   },
+
   methods: {
+    mapIcon(code) {
+      return mapWeatherCodeToIcon(code);
+    },
     ...mapActions("vehicles", ["removeVehicle"]),
     onSubmit(payload) {
       this.removeVehicle(payload);
@@ -43,4 +55,9 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.weather-image {
+  width: 36px;
+  height: 36px;
+}
+</style>

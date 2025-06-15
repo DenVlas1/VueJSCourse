@@ -5,6 +5,7 @@
         <b-nav-item to="/" class="text-dark">Home</b-nav-item>
         <b-nav-item to="/about" class="text-dark">About</b-nav-item>
         <b-nav-item to="/contact" class="text-dark">Contact</b-nav-item>
+        <b-nav-item to="/weather" class="text-dark">Weather</b-nav-item>
       </b-navbar-nav>
     </b-navbar>
 
