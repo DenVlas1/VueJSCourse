@@ -1,4 +1,4 @@
-# Завдання 11. Перенос логіки API на сервер і Docker
+# Завдання 11. Перенос логіки АПІ на сервер, знайомство з Docker 
 
 ##  Запуск PostgreSQL у Docker (Windows)
 docker run --name postgresql1 -e POSTGRES_PASSWORD=123456 -v C:\projects\DB\pg15_2:/var/lib/postgresql/data -p 5432:5432 -d postgres:15.2
